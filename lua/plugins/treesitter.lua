@@ -5,7 +5,6 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     config = function()
       require("nvim-treesitter.configs").setup({
-        -- インストールする言語
         ensure_installed = {
           "lua",
           "vim",
@@ -22,6 +21,9 @@ return {
           "typescript",
           "tsx",
           "python",
+          "go",        -- Go 追加
+          "gomod",     -- go.mod
+          "gosum",     -- go.sum
           "nim",
           "ruby",
         },
@@ -43,5 +45,5 @@ return {
         autotag = { enable = true },
       })
     end,
-  }
+  },
 }
