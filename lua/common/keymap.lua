@@ -55,6 +55,7 @@ keymap("n", "<C-p>", "<Cmd>Telescope find_files<CR>", opts)
 keymap("n", "<leader>f", "<Cmd>Telescope live_grep<CR>", opts)
 -- Ctrl+Shift+P: コマンドパレット風
 keymap("n", "<leader>P", "<Cmd>Telescope commands<CR>", opts)
+keymap("n", "<leader>d", "<Cmd>Telescope diagnostics<CR>", opts)
 
 -- ############
 -- ## Barbar ##
