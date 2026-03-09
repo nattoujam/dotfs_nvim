@@ -18,12 +18,12 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
-          "lua_ls",       -- Lua
-          "ts_ls",        -- TypeScript / JavaScript
-          "pyright",      -- Python
-          "gopls",        -- Go
-          "eslint",       -- JS/TS lint
-          "nimls",        -- Nim（既存）
+          "lua_ls",  -- Lua
+          "ts_ls",   -- TypeScript / JavaScript
+          "pyright", -- Python
+          "gopls",   -- Go
+          "eslint",  -- JS/TS lint
+          "nimls",   -- Nim（既存）
         },
         automatic_installation = true,
       })
@@ -198,8 +198,8 @@ return {
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip",  priority = 750 },
         }, {
-          { name = "buffer",   priority = 500 },
-          { name = "path",     priority = 250 },
+          { name = "buffer", priority = 500 },
+          { name = "path",   priority = 250 },
         }),
       })
 
@@ -227,7 +227,7 @@ return {
       require("conform").setup({
         formatters_by_ft = {
           lua = { "stylua" },
-          python = { "isort" },
+          python = { "isort", "autopep8" },
           javascript = { "prettier" },
           javascriptreact = { "prettier" },
           typescript = { "prettier" },
@@ -247,3 +247,4 @@ return {
     end,
   },
 }
+
