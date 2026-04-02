@@ -290,7 +290,15 @@ return {
           command_palette = true,
           long_message_to_split = true,
           inc_rename = true,
+          lsp_doc_border = true,
         },
+        routes = {
+          filter = {
+            event = "msg_show",
+            find = "Type.*:qa",
+          },
+          opts = { skip = true }
+        }
       })
     end,
   },
@@ -303,5 +311,29 @@ return {
     config = function()
       require("todo-comments").setup()
     end,
+  },
+
+  -- Claude Code 統合（VSCode 拡張相当）
+  {
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    config = true,
+    keys = {
+      { "<leader>a",  nil,                              desc = "Claude Code" },
+      { "<leader>ac", "<cmd>ClaudeCode<cr>",            desc = "Claude: トグル" },
+      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Claude: フォーカス" },
+      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Claude: 再開" },
+      { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Claude: モデル選択" },
+      { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>",       desc = "Claude: 現在のバッファを追加" },
+      { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                             desc = "Claude: 選択範囲を送信" },
+      {
+        "<leader>as",
+        "<cmd>ClaudeCodeTreeAdd<cr>",
+        desc = "Claude: ファイルを追加",
+        ft = { "neo-tree" },
+      },
+      { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Claude: diff を承認" },
+      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>",   desc = "Claude: diff を拒否" },
+    },
   },
 }
